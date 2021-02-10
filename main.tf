@@ -30,7 +30,7 @@ resource "digitalocean_droplet" "droplet" {
     list(var.resource_size),
   )
   size        = var.resource_size
-  resize_disk = var.resource_incease_disk
+  resize_disk = var.resource_increase_disk
   ipv6        = true
   ssh_keys    = var.ssh_public_keys
 }
