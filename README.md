@@ -134,17 +134,17 @@ And finally run `terraform plan -var-file=../secrets.tfvars` check the changes a
 
 # Argument Reference
 
-- `do_token` - (Required) API key for Digitalocean.
+- `do_token` - (**Required**) API key for Digitalocean.
 
-- `ssh_public_keys` - (Required) Fingerprints of public ssh keys. Type is `list(string)`
+- `ssh_public_keys` - (**Required**) Fingerprints of public ssh keys. Type is `list(string)`
   
 - `resource_number_server` - (Optional) Number of servers to deploy. Defaults to `1`.
   
 - `resource_provider` - (Optional) Abbreviation for the cloud provider - required for naming. Defaults to `do`.
   
-- `resource_country` - (Required) Country of where resource is deployed.
+- `resource_country` - (**Required**) Country of where resource is deployed.
 
-- `resource_datacenter` - (Required) Datacenter where the VM is deployed.
+- `resource_datacenter` - (**Required**) Datacenter where the VM is deployed.
 
 - `resource_image` - (Optional) Operating System of virtual machine. Default is `Ubuntu 20.04 LTS`.
 
@@ -162,10 +162,10 @@ And finally run `terraform plan -var-file=../secrets.tfvars` check the changes a
 
 - `do_inbound_rules` - (Optional) List of allowed ports, protocols and source addresses. Type is `list(string)`. Default is an empty list. Everything incoming except 22 and ICMP will be blocked by default. Outgoing traffic is unblocked.
 
-- `cloudflare_email` - (Required) The E-Mail address assigned to the Cloudflare account.
+- `cloudflare_email` - (**Required**) The E-Mail address assigned to the Cloudflare account.
 
-- `cloudflare_api_key` - (Required) API key for Cloudflare.
+- `cloudflare_api_key` - (**Required**) API key for Cloudflare.
 
-- `cloudflare_tld` - (Required) Assigned domain to the droplet.
+- `cloudflare_tld` - (**Required**) Assigned domain to the droplet.
 
 
