@@ -34,7 +34,7 @@ Quite obvious: A `secrets.tfvars` file is required to store your credentials for
 
 # Example Usage
 
-Clone the repository and get the relative path to the module. Replace `../../module/do-droplet` with the relative path in the following `main.tf`:
+Either you use the example below where the module will be grabbed from [GitHub](github.com) direct or clone the repository and get the relative path to the module. Replace the GitHub link with the relative path (i.e. `"../../module/do-droplet"`) in the following `main.tf`:
 
 ```hcl
 terraform {
@@ -59,7 +59,7 @@ provider "cloudflare" {
 }
 
 module "example" {
-  source = "../../module/do-droplet"
+  source = "github.com/akutschi/terraform-digitalocean-cloudflare-droplet-firewall?ref=v0.0.1"
 
   do_token        = var.do_token
   ssh_public_keys = var.ssh_public_keys
