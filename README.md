@@ -34,7 +34,7 @@ Quite obvious: A `secrets.tfvars` file is required to store your credentials for
 
 # Example Usage
 
-Either you use the example below where the module will be grabbed from [GitHub](github.com) direct or clone the repository and get the relative path to the module. Replace the GitHub link with the relative path (i.e. `"../../module/do-droplet"`) in the following `main.tf`:
+Either you use the example below where the module will be grabbed from [GitHub](github.com) direct or clone the repository and get the relative path to the module. Replace the GitHub link with the relative path (i.e. `"../../module/terraform-digitalocean-cloudflare-droplet-firewall"`) in the following `main.tf`:
 
 ```hcl
 terraform {
