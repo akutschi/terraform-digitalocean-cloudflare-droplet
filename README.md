@@ -59,7 +59,7 @@ provider "cloudflare" {
 }
 
 module "example" {
-  source = "github.com/akutschi/terraform-digitalocean-cloudflare-droplet-firewall?ref=v0.0.1"
+  source = "github.com/akutschi/terraform-digitalocean-cloudflare-droplet-firewall?ref=v0.0.2"
 
   do_token        = var.do_token
   ssh_public_keys = var.ssh_public_keys
@@ -130,7 +130,7 @@ cloudflare_email = "<name>@example.com"
 cloudflare_api_key = "<key>"
 ```
 
-And finally run `terraform plan -var-file=../secrets.tfvars` check the changes and `terraform apply -var-file=../secrets.tfvars` to apply the plan. 
+Assuming that all files are in the same directory, run `terraform plan -var-file=./secrets.tfvars` check the changes and `terraform apply -var-file=./secrets.tfvars` to apply the plan. 
 
 # Argument Reference
 
