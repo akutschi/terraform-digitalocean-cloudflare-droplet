@@ -36,7 +36,7 @@ resource "digitalocean_droplet" "droplet" {
 }
 
 resource "digitalocean_firewall" "droplet-fw" {
-  name = "${var.resource_project}-${var.resource_environment}-${var.resource_purpose}"
+  name = "${var.resource_provider}-${var.resource_country}-${var.resource_datacenter}-${var.resource_project}-${var.resource_environment}-${var.resource_purpose}"
 
   droplet_ids = [for d in digitalocean_droplet.droplet[*] : d.id]
 
