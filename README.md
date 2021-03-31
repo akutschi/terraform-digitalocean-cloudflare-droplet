@@ -29,7 +29,7 @@ Quite obvious: A `secrets.tfvars` file is required to store your credentials for
 
 # Example Usage
 
-Either you use the example below where the module will be grabbed from [GitHub](github.com) direct or clone the repository and get the relative path to the module. Replace the GitHub link with the relative path (i.e. `"../../module/terraform-digitalocean-cloudflare-droplet-firewall"`) in the following `main.tf`:
+Either you use the example below where the module will be grabbed from [GitHub](github.com) direct or clone the repository and get the relative path to the module. Replace the GitHub link with the relative path (i.e. `"../../module/terraform-digitalocean-cloudflare-droplet"`) in the following `main.tf`:
 
 ```hcl
 terraform {
@@ -54,7 +54,7 @@ provider "cloudflare" {
 }
 
 module "example" {
-  source = "github.com/akutschi/terraform-digitalocean-cloudflare-droplet-firewall?ref=v0.1.0"
+  source = "github.com/akutschi/terraform-digitalocean-cloudflare-droplet?ref=v0.1.0"
 
   do_token        = var.do_token
   ssh_public_keys = var.ssh_public_keys
@@ -136,7 +136,7 @@ Assuming that all files are in the same directory, run `terraform plan -var-file
 
 - `resource_datacenter` - (**Required**) Datacenter where the VM is deployed.
 
-- `resource_image` - (Optional) Operating System of virtual machine. Default is `Ubuntu 20.04 LTS`.
+- `resource_os_image` - (Optional) Operating System of virtual machine. Default is `Ubuntu 20.04 LTS`.
 
 - `resource_size` - (Optional) Size of virtual machine. Default is the smallest one: `s-1vcpu-1gb`.
 
