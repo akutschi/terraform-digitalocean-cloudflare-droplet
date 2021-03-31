@@ -10,65 +10,65 @@ variable "ssh_public_keys" {
   sensitive   = true
 }
 
-variable "resource_number_server" {
+variable "droplet_number_server" {
   description = "Number of servers to deploy"
   type        = number
   default     = 1
 }
 
-variable "resource_provider" {
+variable "droplet_provider" {
   description = "Abbreviation for the cloud provider - required for naming"
   type        = string
   default     = "do"
 }
 
-variable "resource_country" {
+variable "droplet_country" {
   description = "Country of where resource is deployed"
   type        = string
 }
 
-variable "resource_datacenter" {
+variable "droplet_datacenter" {
   description = "Datacenter where resource is deployed"
   type        = string
 }
 
-variable "resource_image" {
+variable "droplet_os_image" {
   description = "Operating System of virtual machine"
   type        = string
   default     = "ubuntu-20-04-x64"
 }
 
-variable "resource_size" {
+variable "droplet_size" {
   description = "Size of virtual machine"
   type        = string
   default     = "s-1vcpu-1gb"
 }
 
-variable "resource_increase_disk" {
+variable "droplet_increase_disk" {
   description = "Resize disk when VM is resized"
   type        = bool
   default     = false
 }
 
-variable "resource_project" {
+variable "droplet_project" {
   description = "Name of the project - optional for naming"
   type        = string
   default     = "project"
 }
 
-variable "resource_environment" {
+variable "droplet_environment" {
   description = "Assigned environment - dev, stage, prod"
   type        = string
   default     = "dev"
 }
 
-variable "resource_purpose" {
+variable "droplet_purpose" {
   description = "Purpose of the resource"
   type        = string
   default     = "server"
 }
 
-variable "resource_tags" {
+variable "droplet_tags" {
   description = "Additional assigned tags"
   type        = list(string)
   default     = []
