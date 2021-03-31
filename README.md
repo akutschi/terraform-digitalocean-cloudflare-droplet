@@ -1,6 +1,6 @@
 # Digitalocean Droplets Module
 
-This module will create a [Digitalocean](digitalocean.com) VM - aka droplet - protected by a Digitalocean firewall and creates at the same time DNS entries for IPv4 and IPv6 using [Cloudflare](cloudflare.com).
+This module will create a [Digitalocean](digitalocean.com) VM - aka droplet - and creates at the same time DNS entries for IPv4 and IPv6 using [Cloudflare](cloudflare.com).
 
 # Requirements
 
@@ -26,11 +26,6 @@ Quite obvious: A `secrets.tfvars` file is required to store your credentials for
 
 - By default `IPv6` is enabled. 
 - Resizing the disk when a larger VM is chosen is **disabled**. The reason is that once the disk is increased it can not be downsized anymore. If this behavior is acceptable for you add `resource_increase_disk = "true"` to the module.
-
-## Firewall Defaults
-
-- By default only `ssh` on port 22 and `ICMP` are open to the outside world. 
-- Outbound are no limitations. 
 
 # Example Usage
 
@@ -59,7 +54,7 @@ provider "cloudflare" {
 }
 
 module "example" {
-  source = "github.com/akutschi/terraform-digitalocean-cloudflare-droplet-firewall?ref=v0.0.2"
+  source = "github.com/akutschi/terraform-digitalocean-cloudflare-droplet-firewall?ref=v0.1.0"
 
   do_token        = var.do_token
   ssh_public_keys = var.ssh_public_keys
@@ -74,12 +69,7 @@ module "example" {
 
   resource_tags = [
       "example-tag-1",
-      "example-tag-2:,
-  ]
-
-  do_inbound_rules = [
-      "80/tcp",
-      "443/tcp",
+      "example-tag-2",
   ]
 
   cloudflare_email   = var.cloudflare_email
@@ -159,8 +149,6 @@ Assuming that all files are in the same directory, run `terraform plan -var-file
 - `resource_purpose` - (Optional) Purpose of the resource. Defaults to `server`.
 
 - `resource_tags` - (Optional) Additional assigned tags. Type `list(string)`. Default is an empty list.  A set of tags like country, datacenter and so on will be created automatically. This tags here are on top of the predefined ones.
-
-- `do_inbound_rules` - (Optional) List of allowed ports, protocols and source addresses. Type is `list(string)`. Default is an empty list. Everything incoming except 22 and ICMP will be blocked by default. Outgoing traffic is unblocked.
 
 - `cloudflare_email` - (**Required**) The E-Mail address assigned to the Cloudflare account.
 
