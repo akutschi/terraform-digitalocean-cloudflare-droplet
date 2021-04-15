@@ -2,12 +2,12 @@ output "droplet_inventory" {
   value = [for s in digitalocean_droplet.droplet[*] : {
     "groups" : concat(
       var.droplet_tags,
-      list("terraform"),
-      list(var.droplet_country),
-      list(var.droplet_datacenter),
-      list(var.droplet_purpose),
-      list(var.droplet_environment),
-      list(var.droplet_project),
+      tolist(["terraform"]),
+      tolist([var.droplet_country]),
+      tolist([var.droplet_datacenter]),
+      tolist([var.droplet_purpose]),
+      tolist([var.droplet_environment]),
+      tolist([var.droplet_project]),
     )
     "name" : s.name,
     "ip" : s.ipv4_address,

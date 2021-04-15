@@ -9,7 +9,7 @@ terraform {
       version = "~> 2.0"
     }
   }
-  required_version = ">= 0.14, < 0.15"
+  required_version = ">= 0.14, < 0.16"
 }
 
 resource "digitalocean_droplet" "droplet" {
@@ -19,12 +19,12 @@ resource "digitalocean_droplet" "droplet" {
   region = var.droplet_datacenter
   tags = concat(
     var.droplet_tags,
-    list("terraform"),
-    list(var.droplet_country),
-    list(var.droplet_datacenter),
-    list(var.droplet_purpose),
-    list(var.droplet_environment),
-    list(var.droplet_project),
+    tolist(["terraform"]),
+    tolist([var.droplet_country]),
+    tolist([var.droplet_datacenter]),
+    tolist([var.droplet_purpose]),
+    tolist([var.droplet_environment]),
+    tolist([var.droplet_project]),
   )
   size        = var.droplet_size
   resize_disk = var.droplet_increase_disk
